@@ -6,7 +6,7 @@ import { UserListView } from 'src/sections/contacts/view';
 
 // ----------------------------------------------------------------------
 
-const metadata = { title: `User list | Dashboard - ${CONFIG.appName}` };
+const metadata = { title: `Contact list | Dashboard - ${CONFIG.appName}` };
 
 export default function Page() {
   return (

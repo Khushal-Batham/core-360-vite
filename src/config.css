@@ -1,0 +1,65 @@
+:root {
+  /* Typography */
+  --font-family-base: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-family-heading: var(--font-family-base);
+
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+  --line-height-heading: 1.2;
+
+  /* Spacing */
+  --spacing-base: calc(var(--line-height-base) * 1em);
+  --spacing-small: calc(var(--spacing-base) / 2);
+  --spacing-medium: calc(var(--spacing-base) * 1.5);
+  --spacing-large: calc(var(--spacing-base) * 2);
+
+  /* Border */
+  --border-radius-base: 4px;
+  --border-color-base: #edeff2;
+  --border-width-base: 1px;
+  --border-base: var(--border-width-base) solid var(--border-color-base);
+
+  /* Colors */
+  --color-white: #fff;
+  --color-black: #000;
+
+  --color-primary: #1f93ff; /* Blue */
+  --color-danger: #ff382d; /* Red */
+  --color-warning: #ffc532; /* Light Yellow */
+  --color-success: #44ce4b; /* Light Green */
+
+  --color-grey-lightest: #f6f7f7; /* Grey 0 */
+  --color-grey-lighter: #edeff2; /* Grey 1 */
+  --color-grey-light: #cfd8dc; /* Grey 2 */
+  --color-grey-medium: #adb5bd; /* Grey 5 */
+  --color-grey-dark: #293f54; /* Grey 7 */
+  --color-grey-hint: #7b808c; /* Hint Grey */
+
+  /* Font Colors */
+  --color-text-base: var(--color-grey-dark);
+  --color-text-action: var(--color-primary);
+
+  /* Background Colors */
+  --color-background-base: var(--color-grey-lightest);
+
+  /* Focus Styles */
+  --focus-outline-color: rgba(31, 147, 255, 0.6);
+  --focus-outline-width: 3px;
+  --focus-outline: var(--focus-outline-width) solid var(--focus-outline-color);
+  --focus-outline-offset: 1px;
+
+  /* Notification Colors */
+  --color-flash-alert: var(--color-warning);
+  --color-flash-error: var(--color-danger);
+  --color-flash-notice: #8fc9ff; /* Mix of white and blue */
+  --color-flash-success: var(--color-success);
+
+  /* Transitions */
+  --transition-duration-base: 250ms;
+  --transition-timing-base: ease-in-out;
+
+  /* Icon Sizes */
+  --icon-size-base: 24px;
+  --icon-size-small: 20px;
+}

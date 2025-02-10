@@ -27,7 +27,7 @@ export default function App({ children }: AppProps) {
         <ThemeProvider
           noSsr
           defaultMode={themeConfig.defaultMode}
-          modeStorageKey={themeConfig.modeStorageKey}
+          modeStorageKey={themeConfig.classesPrefix}
         >
           <MotionLazy>
             <ProgressBar />

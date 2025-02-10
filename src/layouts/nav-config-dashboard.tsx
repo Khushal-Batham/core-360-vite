@@ -82,12 +82,8 @@ export const navData: NavSectionProps['data'] = [
         path: paths.dashboard.contacts.root,
         icon: ICONS.user,
         children: [
-          { title: 'Profile', path: paths.dashboard.contacts.root },
-          { title: 'Cards', path: paths.dashboard.contacts.cards },
           { title: 'List', path: paths.dashboard.contacts.list },
-          { title: 'Create', path: paths.dashboard.contacts.new },
-          { title: 'Edit', path: paths.dashboard.contacts.demo.edit },
-          { title: 'Account', path: paths.dashboard.contacts.account },
+          { title: 'Details', path: paths.dashboard.contacts.demo.details },
         ],
       },
     ],

@@ -6,7 +6,7 @@ import { DashboardContent } from 'src/layouts/dashboard';
 
 import { CustomBreadcrumbs } from 'src/components/custom-breadcrumbs';
 
-import { UserNewEditForm } from '../user-new-edit-form';
+import { UserNewEditForm } from '../contact-details';
 
 // ----------------------------------------------------------------------
 
@@ -18,14 +18,14 @@ export function UserEditView({ user: currentUser }: Props) {
   return (
     <DashboardContent>
       <CustomBreadcrumbs
-        heading="Edit"
+        heading="Details"
         backHref={paths.dashboard.contacts.list}
         links={[
           { name: 'Dashboard', href: paths.dashboard.root },
           { name: 'Contacts', href: paths.dashboard.contacts.root },
           { name: currentUser?.name },
         ]}
-        sx={{ mb: { xs: 3, md: 5 } }}
+        sx={{ mb: { xs: 1, md: 1 } }}
       />
 
       <UserNewEditForm currentUser={currentUser} />

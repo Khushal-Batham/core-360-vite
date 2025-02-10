@@ -97,3 +97,13 @@ export type IUserAccountBillingHistory = {
   invoiceNumber: string;
   createdAt: IDateValue;
 };
+
+export type TicketsList = {
+  id: string;
+  subject: string;
+  status: string;
+  assigned_to: string;
+  created_date: string;
+  priority: string;
+  action: string;
+};

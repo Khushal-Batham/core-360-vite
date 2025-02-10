@@ -9,7 +9,7 @@ import { UserEditView } from 'src/sections/contacts/view';
 
 // ----------------------------------------------------------------------
 
-const metadata = { title: `User edit | Dashboard - ${CONFIG.appName}` };
+const metadata = { title: `User Details | Dashboard - ${CONFIG.appName}` };
 
 export default function Page() {
   const { id = '' } = useParams();

@@ -60,9 +60,9 @@ export const paths = {
       cards: `${ROOTS.DASHBOARD}/contacts/cards`,
       profile: `${ROOTS.DASHBOARD}/contacts/profile`,
       account: `${ROOTS.DASHBOARD}/contacts/account`,
-      edit: (id: string) => `${ROOTS.DASHBOARD}/contacts/${id}/edit`,
+      details: (id: string) => `${ROOTS.DASHBOARD}/contacts/${id}/details`,
       demo: {
-        edit: `${ROOTS.DASHBOARD}/contacts/${MOCK_ID}/edit`,
+        details: `${ROOTS.DASHBOARD}/contacts/${MOCK_ID}/details`,
       },
     },
   },

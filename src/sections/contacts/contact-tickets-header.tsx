@@ -2,7 +2,6 @@ import type { Theme, SxProps, CSSObject } from '@mui/material/styles';
 
 import Box from '@mui/material/Box';
 import TableRow from '@mui/material/TableRow';
-import Checkbox from '@mui/material/Checkbox';
 import TableHead from '@mui/material/TableHead';
 import TableCell from '@mui/material/TableCell';
 import TableSortLabel from '@mui/material/TableSortLabel';
@@ -42,7 +41,7 @@ export type TableHeadCustomProps = {
   onSelectAllRows?: (checked: boolean) => void;
 };
 
-export function TableHeadCustom({
+export function ContactTicketsTableHeader({
   sx,
   order,
   onSort,
@@ -52,25 +51,10 @@ export function TableHeadCustom({
   numSelected = 0,
   onSelectAllRows,
 }: TableHeadCustomProps) {
-
+  console.log('🚀 ~ headCell.width :', headCells);
   return (
     <TableHead sx={sx}>
       <TableRow>
-        {onSelectAllRows && (
-          <TableCell padding="checkbox">
-            <Checkbox
-              indeterminate={!!numSelected && numSelected < rowCount}
-              checked={!!rowCount && numSelected === rowCount}
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                onSelectAllRows(event.target.checked)
-              }
-              inputProps={{
-                id: `all-row-checkbox`,
-                'aria-label': `All row Checkbox`,
-              }}
-            />
-          </TableCell>
-        )}
         {headCells.map((headCell) => (
           <TableCell
             key={headCell.id}

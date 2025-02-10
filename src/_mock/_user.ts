@@ -140,3 +140,104 @@ export const _userList = Array.from({ length: 20 }, (_, index) => ({
   phoneNumber: _mock.phoneNumber(index),
   status: (index % 2 && 'unactive') || 'active',
 }));
+
+export const TICKETS: {
+  id: string;
+  subject: string;
+  status: string;
+  assigned_to: string;
+  created_date: string;
+  priority: string;
+  action: string;
+}[] = [
+  {
+    id: '1',
+    subject: 'Login Issue',
+    status: 'Open',
+    assigned_to: 'John Doe',
+    created_date: '2025-02-10',
+    priority: 'High',
+    action: 'View',
+  },
+  {
+    id: '2',
+    subject: 'Payment Failure',
+    status: 'In Progress',
+    assigned_to: 'Jane Smith',
+    created_date: '2025-02-09',
+    priority: 'Medium',
+    action: 'View',
+  },
+  {
+    id: '3',
+    subject: 'Bug in Dashboard',
+    status: 'Resolved',
+    assigned_to: 'Robert Brown',
+    created_date: '2025-02-08',
+    priority: 'Low',
+    action: 'View',
+  },
+  {
+    id: '4',
+    subject: 'Email Not Received',
+    status: 'Open',
+    assigned_to: 'Emily Johnson',
+    created_date: '2025-02-07',
+    priority: 'High',
+    action: 'View',
+  },
+  {
+    id: '5',
+    subject: 'Page Load Slow',
+    status: 'Closed',
+    assigned_to: 'Michael Lee',
+    created_date: '2025-02-06',
+    priority: 'Medium',
+    action: 'View',
+  },
+  {
+    id: '6',
+    subject: 'Error 500 on Checkout',
+    status: 'In Progress',
+    assigned_to: 'Sarah Wilson',
+    created_date: '2025-02-05',
+    priority: 'Critical',
+    action: 'View',
+  },
+  {
+    id: '7',
+    subject: 'Profile Picture Not Updating',
+    status: 'Resolved',
+    assigned_to: 'David Martinez',
+    created_date: '2025-02-04',
+    priority: 'Low',
+    action: 'View',
+  },
+  {
+    id: '8',
+    subject: 'Two-Factor Authentication Issue',
+    status: 'Open',
+    assigned_to: 'Chris Taylor',
+    created_date: '2025-02-03',
+    priority: 'High',
+    action: 'View',
+  },
+  {
+    id: '9',
+    subject: 'Billing Discrepancy',
+    status: 'Closed',
+    assigned_to: 'Anna Harris',
+    created_date: '2025-02-02',
+    priority: 'Medium',
+    action: 'View',
+  },
+  {
+    id: '10',
+    subject: 'Live Chat Not Working',
+    status: 'In Progress',
+    assigned_to: 'James White',
+    created_date: '2025-02-01',
+    priority: 'High',
+    action: 'View',
+  },
+];

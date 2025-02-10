@@ -21,11 +21,9 @@ const PageFour = lazy(() => import('src/pages/dashboard/four'));
 const PageFive = lazy(() => import('src/pages/dashboard/five'));
 const PageSix = lazy(() => import('src/pages/dashboard/six'));
 // User
-const UserProfilePage = lazy(() => import('src/pages/dashboard/contacts/profile'));
-const UserCardsPage = lazy(() => import('src/pages/dashboard/contacts/cards'));
-const UserListPage = lazy(() => import('src/pages/dashboard/contacts/list'));
-const UserCreatePage = lazy(() => import('src/pages/dashboard/contacts/new'));
-const UserEditPage = lazy(() => import('src/pages/dashboard/contacts/edit'));
+
+const ContactListPage = lazy(() => import('src/pages/dashboard/contacts/list'));
+const ContactDetailsPage = lazy(() => import('src/pages/dashboard/contacts/details'));
 // ----------------------------------------------------------------------
 
 function SuspenseOutlet() {
@@ -62,12 +60,9 @@ export const dashboardRoutes: RouteObject[] = [
       {
         path: 'contacts',
         children: [
-          { index: true, element: <UserProfilePage /> },
-          { path: 'profile', element: <UserProfilePage /> },
-          { path: 'cards', element: <UserCardsPage /> },
-          { path: 'list', element: <UserListPage /> },
-          { path: 'new', element: <UserCreatePage /> },
-          { path: ':id/edit', element: <UserEditPage /> },
+          { index: true, element: <ContactListPage /> },
+          { path: 'list', element: <ContactListPage /> },
+          { path: ':id/details', element: <ContactDetailsPage /> },
         ],
       },
     ],

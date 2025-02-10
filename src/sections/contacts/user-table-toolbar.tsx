@@ -118,10 +118,12 @@ export function UserTableToolbar({ filters, options, onResetPage }: Props) {
             flexGrow: 1,
             display: 'flex',
             alignItems: 'center',
+            justifyContent: 'flex-end', // Align all items to the end
           }}
         >
           <TextField
-            fullWidth
+            size="small"
+            sx={{ padding: '0' }}
             value={currentFilters.name}
             onChange={handleFilterName}
             placeholder="Search..."

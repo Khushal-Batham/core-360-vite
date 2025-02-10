@@ -56,9 +56,8 @@ const TABLE_HEAD: TableHeadCellProps[] = [
 ];
 
 // ----------------------------------------------------------------------
-
 export function UserListView() {
-  const table = useTable();
+  const table = useTable({ defaultDense: true, defaultRowsPerPage: 10 });
 
   const confirmDialog = useBoolean();
 
@@ -157,7 +156,7 @@ export function UserListView() {
               New Contact
             </Button>
           }
-          sx={{ mb: { xs: 3, md: 5 } }}
+          sx={{ mb: { xs: 1, md: 1 } }}
         />
 
         <Card>
@@ -226,7 +225,7 @@ export function UserListView() {
                         selected={table.selected.includes(row.id)}
                         onSelectRow={() => table.onSelectRow(row.id)}
                         onDeleteRow={() => handleDeleteRow(row.id)}
-                        editHref={paths.dashboard.contacts.edit(row.id)}
+                        editHref={paths.dashboard.contacts.details(row.id)}
                       />
                     ))}
 

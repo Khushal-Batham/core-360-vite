@@ -9,7 +9,7 @@ export const BreadcrumbsRoot = styled('div')(({ theme }) => ({
 }));
 
 export const BreadcrumbsHeading = styled('h6')(({ theme }) => ({
-  ...theme.typography.h4,
+  ...theme.typography.h6,
   margin: 0,
   padding: 0,
   display: 'inline-flex',
