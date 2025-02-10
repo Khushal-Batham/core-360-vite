@@ -143,13 +143,13 @@ export function UserListView() {
           heading="List"
           links={[
             { name: 'Dashboard', href: paths.dashboard.root },
-            { name: 'Contacts', href: paths.dashboard.contacts.root },
+            { name: 'Contacts', href: paths.dashboard.contact.root },
             { name: 'List' },
           ]}
           action={
             <Button
               component={RouterLink}
-              href={paths.dashboard.contacts.new}
+              // href={paths.dashboard.contact.new}
               variant="contained"
               startIcon={<Iconify icon="mingcute:add-line" />}
             >
@@ -225,7 +225,7 @@ export function UserListView() {
                         selected={table.selected.includes(row.id)}
                         onSelectRow={() => table.onSelectRow(row.id)}
                         onDeleteRow={() => handleDeleteRow(row.id)}
-                        editHref={paths.dashboard.contacts.details(row.id)}
+                        editHref={paths.dashboard.contact.details(row.id)}
                       />
                     ))}
 

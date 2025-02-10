@@ -53,16 +53,20 @@ export const paths = {
       five: `${ROOTS.DASHBOARD}/group/five`,
       six: `${ROOTS.DASHBOARD}/group/six`,
     },
-    contacts: {
-      root: `${ROOTS.DASHBOARD}/contacts`,
-      new: `${ROOTS.DASHBOARD}/contacts/new`,
-      list: `${ROOTS.DASHBOARD}/contacts/list`,
-      cards: `${ROOTS.DASHBOARD}/contacts/cards`,
-      profile: `${ROOTS.DASHBOARD}/contacts/profile`,
-      account: `${ROOTS.DASHBOARD}/contacts/account`,
-      details: (id: string) => `${ROOTS.DASHBOARD}/contacts/${id}/details`,
+    contact: {
+      root: `${ROOTS.DASHBOARD}/contact`,
+      list: `${ROOTS.DASHBOARD}/contact/list`,
+      details: (id: string) => `${ROOTS.DASHBOARD}/contact/${id}/details`,
       demo: {
-        details: `${ROOTS.DASHBOARD}/contacts/${MOCK_ID}/details`,
+        details: `${ROOTS.DASHBOARD}/contact/${MOCK_ID}/details`,
+      },
+    },
+    account: {
+      root: `${ROOTS.DASHBOARD}/account`,
+      list: `${ROOTS.DASHBOARD}/account/list`,
+      details: (id: string) => `${ROOTS.DASHBOARD}/account/${id}/details`,
+      demo: {
+        details: `${ROOTS.DASHBOARD}/account/${MOCK_ID}/details`,
       },
     },
   },

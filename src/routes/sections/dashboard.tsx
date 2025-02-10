@@ -58,7 +58,15 @@ export const dashboardRoutes: RouteObject[] = [
         ],
       },
       {
-        path: 'contacts',
+        path: 'contact',
+        children: [
+          { index: true, element: <ContactListPage /> },
+          { path: 'list', element: <ContactListPage /> },
+          { path: ':id/details', element: <ContactDetailsPage /> },
+        ],
+      },
+      {
+        path: 'Account',
         children: [
           { index: true, element: <ContactListPage /> },
           { path: 'list', element: <ContactListPage /> },

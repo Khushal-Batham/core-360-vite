@@ -133,7 +133,7 @@ export function ContactTicketsList() {
                     selected={table.selected.includes(row.id)}
                     onSelectRow={() => table.onSelectRow(row.id)}
                     onDeleteRow={() => handleDeleteRow(row.id)}
-                    editHref={paths.dashboard.contacts.details(row.id)}
+                    editHref={paths.dashboard.contact.details(row.id)}
                   />
                 ))}
 

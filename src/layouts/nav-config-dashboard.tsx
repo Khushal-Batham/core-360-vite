@@ -79,11 +79,11 @@ export const navData: NavSectionProps['data'] = [
       },
       {
         title: 'Contacts',
-        path: paths.dashboard.contacts.root,
+        path: paths.dashboard.contact.root,
         icon: ICONS.user,
         children: [
-          { title: 'List', path: paths.dashboard.contacts.list },
-          { title: 'Details', path: paths.dashboard.contacts.demo.details },
+          { title: 'List', path: paths.dashboard.contact.list },
+          { title: 'Details', path: paths.dashboard.contact.demo.details },
         ],
       },
     ],
