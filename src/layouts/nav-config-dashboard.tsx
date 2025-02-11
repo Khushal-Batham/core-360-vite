@@ -65,27 +65,40 @@ export const navData: NavSectionProps['data'] = [
    * Management
    */
   {
-    subheader: 'Management',
+    subheader: 'CRM',
     items: [
       {
-        title: 'Group',
-        path: paths.dashboard.group.root,
+        title: 'Contacts',
+        path: paths.contact.root,
         icon: ICONS.user,
         children: [
-          { title: 'Four', path: paths.dashboard.group.root },
-          { title: 'Five', path: paths.dashboard.group.five },
-          { title: 'Six', path: paths.dashboard.group.six },
+          { title: 'List', path: paths.contact.list },
+          { title: 'Details', path: paths.contact.demo.details },
         ],
       },
       {
-        title: 'Contacts',
-        path: paths.dashboard.contact.root,
+        title: 'Accounts',
+        path: paths.account.root,
         icon: ICONS.user,
         children: [
-          { title: 'List', path: paths.dashboard.contact.list },
-          { title: 'Details', path: paths.dashboard.contact.demo.details },
+          { title: 'List', path: paths.account.list },
+          { title: 'Details', path: paths.account.demo.details },
         ],
       },
     ],
   },
+  // {
+  //   subheader: 'Accounts',
+  //   items: [
+  //     {
+  //       title: 'Contacts',
+  //       path: paths.account.root,
+  //       icon: ICONS.user,
+  //       children: [
+  //         { title: 'List', path: paths.account.list },
+  //         { title: 'Details', path: paths.account.demo.details },
+  //       ],
+  //     },
+  //   ],
+  // },
 ];

@@ -4,7 +4,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router';
 
 import App from './app';
-import { routesSection } from './routes/sections';
+import { routesSection } from './routes/pages';
 import { ErrorBoundary } from './routes/components';
 
 // ----------------------------------------------------------------------

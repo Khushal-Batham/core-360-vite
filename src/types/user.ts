@@ -107,3 +107,17 @@ export type TicketsList = {
   priority: string;
   action: string;
 };
+
+export type AccountList = {
+  id: string;
+  account_name: string;
+  website: string;
+  email: string;
+  contact_number: string;
+  address: string;
+  owner: string;
+  status: string;
+  rating: number;
+  type: string;
+  action: string;
+};

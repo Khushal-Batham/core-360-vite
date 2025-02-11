@@ -4,6 +4,8 @@ import { _id } from 'src/_mock/assets';
 const ROOTS = {
   AUTH: '/auth',
   DASHBOARD: '/dashboard',
+  ACCOUNT: '/account',
+  CONTACT: '/contact',
 };
 
 const MOCK_ID = _id[1];
@@ -53,21 +55,21 @@ export const paths = {
       five: `${ROOTS.DASHBOARD}/group/five`,
       six: `${ROOTS.DASHBOARD}/group/six`,
     },
-    contact: {
-      root: `${ROOTS.DASHBOARD}/contact`,
-      list: `${ROOTS.DASHBOARD}/contact/list`,
-      details: (id: string) => `${ROOTS.DASHBOARD}/contact/${id}/details`,
-      demo: {
-        details: `${ROOTS.DASHBOARD}/contact/${MOCK_ID}/details`,
-      },
+  },
+  contact: {
+    root: `${ROOTS.CONTACT}`,
+    list: `${ROOTS.CONTACT}/list`,
+    details: (id: string) => `${ROOTS.CONTACT}/${id}/details`,
+    demo: {
+      details: `${ROOTS.CONTACT}/${MOCK_ID}/details`,
     },
-    account: {
-      root: `${ROOTS.DASHBOARD}/account`,
-      list: `${ROOTS.DASHBOARD}/account/list`,
-      details: (id: string) => `${ROOTS.DASHBOARD}/account/${id}/details`,
-      demo: {
-        details: `${ROOTS.DASHBOARD}/account/${MOCK_ID}/details`,
-      },
+  },
+  account: {
+    root: `${ROOTS.ACCOUNT}`,
+    list: `${ROOTS.ACCOUNT}/list`,
+    details: (id: string) => `${ROOTS.ACCOUNT}/${id}/details`,
+    demo: {
+      details: `${ROOTS.ACCOUNT}/${MOCK_ID}/details`,
     },
   },
 };
