@@ -10,14 +10,18 @@ import { CONFIG } from 'src/global-config';
 
 // ----------------------------------------------------------------------
 
-export type MapProps = ReactMapProps & { sx?: SxProps<Theme> };
+export type MapProps = ReactMapProps & { 
+  sx?: SxProps<Theme>;
+  other?: Record<string, unknown>;
+};
 
 export const Map = forwardRef<MapRef, MapProps>((props, ref) => {
   const { sx, ...other } = props;
 
   return (
     <MapRoot sx={sx}>
-      <ReactMap ref={ref} mapboxAccessToken={CONFIG.mapboxApiKey} {...other} />
+      {/* <ReactMap ref={ref} mapboxAccessToken={CONFIG.mapboxApiKey} {...other} /> */}
+      <ReactMap ref={ref} mapboxAccessToken={CONFIG.mapboxApiKey}  />
     </MapRoot>
   );
 });

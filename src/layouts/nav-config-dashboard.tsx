@@ -71,19 +71,11 @@ export const navData: NavSectionProps['data'] = [
         title: 'Contacts',
         path: paths.contact.root,
         icon: ICONS.user,
-        children: [
-          { title: 'List', path: paths.contact.list },
-          { title: 'Details', path: paths.contact.demo.details },
-        ],
       },
       {
         title: 'Accounts',
         path: paths.account.root,
         icon: ICONS.user,
-        children: [
-          { title: 'List', path: paths.account.list },
-          { title: 'Details', path: paths.account.demo.details },
-        ],
       },
     ],
   },

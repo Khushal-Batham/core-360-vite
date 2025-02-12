@@ -8,6 +8,8 @@ export * from './table-skeleton';
 
 export * from './table-empty-rows';
 
+export * from './table-row-custom';
+
 export * from './table-head-custom';
 
 export * from './table-selected-action';

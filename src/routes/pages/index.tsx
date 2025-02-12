@@ -6,9 +6,9 @@ import { Navigate } from 'react-router';
 import { CONFIG } from 'src/global-config';
 
 import { authRoutes } from './auth';
-import { accountRoutes } from './account';
-import { contactRoutes } from './contact';
 import { dashboardRoutes } from './dashboard';
+import { contactRoutes } from '../../pages/contacts/routes/contact';
+import { accountRoutes } from '../../pages/accounts/routes/account';
 
 // ----------------------------------------------------------------------
 
