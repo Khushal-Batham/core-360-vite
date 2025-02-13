@@ -1,0 +1,76 @@
+/* General Styles */
+.margin_y_1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.flex {
+  display: flex;
+}
+
+/* Sidebar Styles */
+.sidebar-container {
+  position: sticky;
+  top: 0;
+}
+
+.sidebar-card {
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+.sidebar-avatar {
+  width: 144px;
+  height: 144px;
+}
+
+.sidebar-text-center {
+  text-align: center;
+}
+
+.sidebar-info {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar-info-box {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-icon {
+  margin-right: 0.5rem;
+}
+
+.sidebar-delete-button {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main Content Styles */
+.main-card {
+  padding: 3rem;
+}
+
+.tabs-container {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 9;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  background-color: var(--background-paper);
+}
+
+.details-card {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  max-height: calc(100vh - 275px);
+  overflow-y: auto;
+}

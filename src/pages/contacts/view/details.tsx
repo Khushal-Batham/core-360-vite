@@ -4,6 +4,7 @@ import { paths } from 'src/routes/paths';
 import { useParams } from 'src/routes/hooks';
 
 import { CONFIG } from 'src/global-config';
+import { useTranslate } from 'src/locales';
 import { _userList } from 'src/_mock/_user';
 
 import { DetailsPageCommon } from 'src/components/details/details';
@@ -15,6 +16,7 @@ import { ContactDetails } from './components/contact-details';
 const metadata = { title: `User Details | Dashboard - ${CONFIG.appName}` };
 
 export default function Page() {
+  const { t } = useTranslate('navbar');
   const { id = '' } = useParams();
 
   const currentUser = _userList.find((user) => user.id === id);
@@ -26,10 +28,10 @@ export default function Page() {
       </Helmet>
 
       <DetailsPageCommon
-        heading="Details"
+        heading={currentUser?.name || 'Unknown'}
         backHref={paths.contact.root}
         breadcrumbsLink={[
-          { name: 'Contacts', href: paths.contact.root },
+          { name: `${t('CONTACTS')}`, href: paths.contact.root },
           { name: currentUser?.name },
         ]}
         components={<ContactDetails currentUser={currentUser} />}

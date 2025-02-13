@@ -4,7 +4,6 @@ import { paths } from 'src/routes/paths';
 
 import { CONFIG } from 'src/global-config';
 
-import { Label } from 'src/components/label';
 import { SvgColor } from 'src/components/svg-color';
 
 // ----------------------------------------------------------------------
@@ -48,19 +47,19 @@ export const navData: NavSectionProps['data'] = [
   /**
    * Overview
    */
-  {
-    subheader: 'Overview',
-    items: [
-      {
-        title: 'One',
-        path: paths.dashboard.root,
-        icon: ICONS.dashboard,
-        info: <Label>v{CONFIG.appVersion}</Label>,
-      },
-      { title: 'Two', path: paths.dashboard.two, icon: ICONS.ecommerce },
-      { title: 'Three', path: paths.dashboard.three, icon: ICONS.analytics },
-    ],
-  },
+  // {
+  //   subheader: 'Overview',
+  //   items: [
+  //     {
+  //       title: 'One',
+  //       path: paths.dashboard.root,
+  //       icon: ICONS.dashboard,
+  //       info: <Label>v{CONFIG.appVersion}</Label>,
+  //     },
+  //     { title: 'Two', path: paths.dashboard.two, icon: ICONS.ecommerce },
+  //     { title: 'Three', path: paths.dashboard.three, icon: ICONS.analytics },
+  //   ],
+  // },
   /**
    * Management
    */
@@ -71,11 +70,20 @@ export const navData: NavSectionProps['data'] = [
         title: 'Contacts',
         path: paths.contact.root,
         icon: ICONS.user,
+        // children: [
+        //   { title: 'List', path: paths.contact.list },
+        //   { title: 'Details', path: paths.contact.demo.details },
+        // ],
       },
+
       {
         title: 'Accounts',
         path: paths.account.root,
-        icon: ICONS.user,
+        icon: ICONS.ecommerce,
+        // children: [
+        //   { title: 'List', path: paths.account.list },
+        //   { title: 'Details', path: paths.account.demo.details },
+        // ],
       },
     ],
   },

@@ -143,6 +143,7 @@ export function DashboardLayout({
               { value: 'vi', label: 'Vietnamese', countryCode: 'VN' },
               { value: 'cn', label: 'Chinese', countryCode: 'CN' },
               { value: 'ar', label: 'Arabic', countryCode: 'SA' },
+              { value: 'he', label: 'Israel', countryCode: 'IL' },
             ]}
           />
 

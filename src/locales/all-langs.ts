@@ -4,6 +4,7 @@ import {
   viVN as viVNCore,
   zhCN as zhCNCore,
   arSA as arSACore,
+  heIL as heILCore,
 } from '@mui/material/locale';
 // date pickers (MUI)
 import {
@@ -11,6 +12,7 @@ import {
   frFR as frFRDate,
   viVN as viVNDate,
   zhCN as zhCNDate,
+  heIL as heILDate,
 } from '@mui/x-date-pickers/locales';
 // data grid (MUI)
 import {
@@ -19,6 +21,7 @@ import {
   viVN as viVNDataGrid,
   zhCN as zhCNDataGrid,
   arSD as arSDDataGrid,
+  heIL as heILDataGrid,
 } from '@mui/x-data-grid/locales';
 
 // ----------------------------------------------------------------------
@@ -72,6 +75,16 @@ export const allLangs = [
     numberFormat: { code: 'ar', currency: 'AED' },
     systemValue: {
       components: { ...arSACore.components, ...arSDDataGrid.components },
+    },
+  },
+  {
+    value: 'he',
+    label: 'Hebrew',
+    countryCode: 'IL',
+    adapterLocale: 'he-il',
+    numberFormat: { code: 'he', currency: 'ILS' },
+    systemValue: {
+      components: { ...heILCore.components, ...heILDate.components, ...heILDataGrid.components },
     },
   },
 ];

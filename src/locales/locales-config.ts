@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------
 
 export const fallbackLng = 'en';
-export const languages = ['en', 'fr', 'vi', 'cn', 'ar'];
+export const languages = ['en', 'fr', 'vi', 'cn', 'ar', 'he'];
 export const defaultNS = 'common';
 
 export type LanguageValue = (typeof languages)[number];

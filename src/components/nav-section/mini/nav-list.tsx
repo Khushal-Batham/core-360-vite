@@ -6,6 +6,8 @@ import { useTheme } from '@mui/material/styles';
 
 import { usePathname } from 'src/routes/hooks';
 
+import { useTranslate } from 'src/locales';
+
 import { NavItem } from './nav-item';
 import { navSectionClasses } from '../styles';
 import { NavUl, NavLi, NavDropdown, NavDropdownPaper } from '../components';
@@ -27,7 +29,7 @@ export function NavList({
 
   const pathname = usePathname();
 
-  const isActive = isActiveLink(pathname, data.path);
+  const isActive = isActiveLink(pathname, data.path, true);
 
   const {
     open,
@@ -54,6 +56,8 @@ export function NavList({
     }
   }, [data.children, onOpen]);
 
+  const { t } = useTranslate('navbar');
+
   const renderNavItem = () => (
     <NavItem
       ref={navItemRef}
@@ -62,7 +66,7 @@ export function NavList({
       path={data.path}
       icon={data.icon}
       info={data.info}
-      title={data.title}
+      title={t(`${data.title.toLocaleUpperCase()}`)}
       caption={data.caption}
       // state
       active={isActive}

@@ -1,4 +1,4 @@
-import { all } from 'axios';
+import { all } from 'redux-saga/effects';
 
 import { watchFetchUsersPost, watchIncrementAsync } from 'src/pages/accounts/redux/accountSaga';
 

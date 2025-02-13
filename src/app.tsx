@@ -12,6 +12,8 @@ import { SettingsDrawer, defaultSettings, SettingsProvider } from 'src/component
 
 import { AuthProvider } from 'src/auth/context/jwt';
 
+import { Snackbar } from './components/snackbar';
+
 // ----------------------------------------------------------------------
 
 type AppProps = {
@@ -30,6 +32,7 @@ export default function App({ children }: AppProps) {
           modeStorageKey={themeConfig.classesPrefix}
         >
           <MotionLazy>
+            <Snackbar />
             <ProgressBar />
             <SettingsDrawer defaultSettings={defaultSettings} />
             {children}

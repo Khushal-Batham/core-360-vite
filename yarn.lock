@@ -7147,7 +7147,7 @@ simplebar-react@^3.3.0:
   dependencies:
     simplebar-core "^1.3.0"
 
-sonner@^1.7.1:
+sonner@^1.7.4:
   version "1.7.4"
   resolved "https://registry.npmjs.org/sonner/-/sonner-1.7.4.tgz"
   integrity sha512-DIS8z4PfJRbIyfVFDVnK9rO3eYDtse4Omcm6bt0oEr5/jtLgysmjuBl1frJ9E/EQZrFmKx2A8m/s5s9CRXIzhw==

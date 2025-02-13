@@ -9,7 +9,6 @@ export function Counter() {
 
   const count = useAppSelector((state) => state.counter.value);
   const { postError, posts, postLoading } = useAppSelector((state) => state.post);
-  console.log('🚀 ~ Counter ~ postError, posts, postLoading:', postError, posts, postLoading);
 
   return (
     <div>

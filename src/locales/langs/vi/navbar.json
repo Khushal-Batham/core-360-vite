@@ -1,12 +1,4 @@
 {
-  "app": "Ứng dụng",
-  "job": "Công việc",
-  "user": "Người dùng",
-  "travel": "Du lịch",
-  "invoice": "Hóa đơn",
-  "blog": {
-    "title": "Blog",
-    "caption": "Phím tắt tùy chỉnh."
-  },
-  "subheader": "Tiêu đề phụ"
+  "CONTACTS": "Liên hệ",
+  "ACCOUNTS": "Tài khoản"
 }

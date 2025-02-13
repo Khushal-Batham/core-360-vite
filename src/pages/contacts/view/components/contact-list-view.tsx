@@ -47,7 +47,7 @@ const TABLE_HEAD: TableHeadCellProps[] = [
   { id: 'country', label: 'Location', width: 180 },
   { id: 'contact', label: 'Contact', width: 180 },
   { id: 'status', label: 'Status', width: 100 },
-  { id: 'action', label: 'Action', width: 100 },
+  { id: 'action', label: 'Action', width: 100, align: 'center' },
 ];
 
 // ----------------------------------------------------------------------

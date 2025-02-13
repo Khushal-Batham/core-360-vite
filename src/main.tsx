@@ -5,7 +5,8 @@ import { HelmetProvider } from 'react-helmet-async';
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router';
 
 import App from './app';
-import store from './store'; 
+import store from './store';
+import { I18nProvider } from './locales';
 import { routesSection } from './routes/pages';
 import { ErrorBoundary } from './routes/components';
 
@@ -27,9 +28,11 @@ const root = createRoot(document.getElementById('root')!);
 
 root.render(
   <StrictMode>
-    <Provider store={store}> 
+    <Provider store={store}>
       <HelmetProvider>
-        <RouterProvider router={router} />
+        <I18nProvider>
+          <RouterProvider router={router} />
+        </I18nProvider>
       </HelmetProvider>
     </Provider>
   </StrictMode>

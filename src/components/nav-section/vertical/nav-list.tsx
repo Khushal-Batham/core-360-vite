@@ -4,6 +4,8 @@ import { isActiveLink, isExternalLink } from 'minimal-shared/utils';
 
 import { usePathname } from 'src/routes/hooks';
 
+import { useTranslate } from 'src/locales';
+
 import { NavItem } from './nav-item';
 import { navSectionClasses } from '../styles';
 import { NavUl, NavLi, NavCollapse } from '../components';
@@ -22,6 +24,7 @@ export function NavList({
 }: NavListProps) {
   const pathname = usePathname();
   const navItemRef = useRef<HTMLButtonElement | null>(null);
+  const { t } = useTranslate('navbar');
 
   const isActive = isActiveLink(pathname, data.path, !!data.children);
 
@@ -47,7 +50,7 @@ export function NavList({
       path={data.path}
       icon={data.icon}
       info={data.info}
-      title={data.title}
+      title={t(`${data.title.toLocaleUpperCase()}`)}
       caption={data.caption}
       // state
       open={open}

@@ -14,7 +14,7 @@ import IconButton from '@mui/material/IconButton';
 
 import { paths } from 'src/routes/paths';
 
-import { _accountList, USER_STATUS_OPTIONS } from 'src/_mock';
+import { _accountList } from 'src/_mock';
 
 import { toast } from 'src/components/snackbar';
 import { Iconify } from 'src/components/iconify';
@@ -36,8 +36,6 @@ import {
 import { AccountTableToolbar } from './account-table-toolbar';
 
 // ----------------------------------------------------------------------
-
-const STATUS_OPTIONS = [{ value: 'all', label: 'All' }, ...USER_STATUS_OPTIONS];
 
 const TABLE_HEAD: TableHeadCellProps[] = [
   { id: 'account_name', label: 'Account Name', width: 180 },
