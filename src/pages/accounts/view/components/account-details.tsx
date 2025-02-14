@@ -1,4 +1,5 @@
 import type { AccountList } from 'src/types/user';
+import type { TableHeadCellProps } from 'src/components/table';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -6,19 +7,40 @@ import Grid from '@mui/material/Grid2';
 import Stack from '@mui/material/Stack';
 import { Tab, Tabs, Button, Avatar, Typography } from '@mui/material';
 
+import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
 import { usePathname, useSearchParams } from 'src/routes/hooks';
 
+import { TICKETS, _userList } from 'src/_mock';
+
 import { Iconify } from 'src/components/iconify';
+import { TableCustom } from 'src/components/table/table-custom';
 import { DetailsPageCommon } from 'src/components/details/details';
 
 import { Counter } from './Counter';
-import { ContactList } from './contact-list';
-import { AccountTicketsList } from './account-tickets';
 
 type Props = {
   currentUser?: AccountList;
 };
+
+const TABLE_HEAD_TICKETS: TableHeadCellProps[] = [
+  { id: 'subject', label: 'Subject', width: 150, filterable: true },
+  { id: 'status', label: 'Status', width: 80 },
+  { id: 'assigned_to', label: 'Assigned to ', width: 80 },
+  { id: 'created_date', label: 'Created date', width: 80 },
+  { id: 'priority', label: 'Priority', width: 80 },
+  { id: 'action', label: 'Action', width: 75, align: 'center' },
+];
+
+const TABLE_HEAD_CONTACTS: TableHeadCellProps[] = [
+  { id: 'name', label: 'Name', width: 180, filterable: true },
+  { id: 'phoneNumber', label: 'Phone number', width: 180 },
+  { id: 'email', label: 'Email', width: 180 },
+  { id: 'country', label: 'Location', width: 180 },
+  { id: 'contact', label: 'Contact', width: 180 },
+  { id: 'status', label: 'Status', width: 100 },
+  { id: 'action', label: 'Action', width: 100 },
+];
 
 export function AccountDetails({ currentUser }: Props) {
   const NAV_ITEMS = [
@@ -55,6 +77,9 @@ export function AccountDetails({ currentUser }: Props) {
     smb: 'mdi:storefront',
     startup: 'mdi:rocket-launch',
   };
+
+  const editHrefTicket = (id: string): string => paths.contact.details(id);
+  const editHrefContact = (id: string): string => paths.contact.details(id);
 
   return (
     <Grid container spacing={3} sx={{ my: 1 }}>
@@ -160,10 +185,28 @@ export function AccountDetails({ currentUser }: Props) {
         </Card>
         <Card sx={{ my: 2, maxHeight: 'calc(100vh - 275px)', overflowY: 'auto' }}>
           {selectedTab === '' && (
-            <DetailsPageCommon heading="" components={<AccountTicketsList />} />
+            <DetailsPageCommon
+              heading=""
+              components={
+                <TableCustom
+                  columns={TABLE_HEAD_TICKETS}
+                  data={TICKETS}
+                  editHref={editHrefTicket}
+                />
+              }
+            />
           )}
           {selectedTab === 'contact_list' && (
-            <DetailsPageCommon heading="" components={<ContactList />} />
+            <DetailsPageCommon
+              heading=""
+              components={
+                <TableCustom
+                  columns={TABLE_HEAD_CONTACTS}
+                  data={_userList}
+                  editHref={editHrefContact}
+                />
+              }
+            />
           )}
           {selectedTab === 'counter' && <Counter />}
         </Card>

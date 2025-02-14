@@ -1,4 +1,5 @@
 import type { IUserItem } from 'src/types/user';
+import type { TableHeadCellProps } from 'src/components/table';
 
 import { z as zod } from 'zod';
 import { isValidPhoneNumber } from 'react-phone-number-input/input';
@@ -9,14 +10,16 @@ import Grid from '@mui/material/Grid2';
 import Stack from '@mui/material/Stack';
 import { Tab, Tabs, Avatar, Button, Typography } from '@mui/material';
 
+import { paths } from 'src/routes/paths';
 import { RouterLink } from 'src/routes/components';
 import { usePathname, useSearchParams } from 'src/routes/hooks';
 
+import { TICKETS } from 'src/_mock';
+
 import { Iconify } from 'src/components/iconify';
 import { schemaHelper } from 'src/components/hook-form';
+import { TableCustom } from 'src/components/table/table-custom';
 import { DetailsPageCommon } from 'src/components/details/details';
-
-import { ContactTicketsList } from './contact-tickets';
 
 // ----------------------------------------------------------------------
 
@@ -46,6 +49,15 @@ export const NewUserSchema = zod.object({
 });
 
 // ----------------------------------------------------------------------
+
+const TABLE_HEAD_TICKETS: TableHeadCellProps[] = [
+  { id: 'subject', label: 'Subject', width: 150, filterable: true },
+  { id: 'status', label: 'Status', width: 80 },
+  { id: 'assigned_to', label: 'Assigned to ', width: 80 },
+  { id: 'created_date', label: 'Created date', width: 80 },
+  { id: 'priority', label: 'Priority', width: 80 },
+  { id: 'action', label: 'Action', width: 75, align: 'center' },
+];
 
 type Props = {
   currentUser?: IUserItem;
@@ -95,6 +107,7 @@ export function ContactDetails({ currentUser }: Props) {
   };
 
   const selectedTab = searchParams.get(TAB_PARAM) ?? '';
+  const editHrefTicket = (id: string): string => paths.contact.details(id);
 
   return (
     <Grid container spacing={3} sx={{ my: 1 }}>
@@ -198,7 +211,13 @@ export function ContactDetails({ currentUser }: Props) {
             <DetailsPageCommon
               heading="Tickets List"
               breadcrumbsLink={[]}
-              components={<ContactTicketsList />}
+              components={
+                <TableCustom
+                  columns={TABLE_HEAD_TICKETS}
+                  data={TICKETS}
+                  editHref={editHrefTicket}
+                />
+              }
             />
           )}
 

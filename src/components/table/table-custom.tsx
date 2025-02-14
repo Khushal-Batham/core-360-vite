@@ -1,5 +1,5 @@
 import type { TableHeadCellProps } from 'src/components/table';
-import type { TicketsList, IUserTableFilters } from 'src/types/user';
+import type { IUserItem, TicketsList, AccountList, IUserTableFilters } from 'src/types/user';
 
 import { useState, useCallback } from 'react';
 import { useBoolean, useSetState } from 'minimal-shared/hooks';
@@ -10,10 +10,6 @@ import Table from '@mui/material/Table';
 import Tooltip from '@mui/material/Tooltip';
 import TableBody from '@mui/material/TableBody';
 import IconButton from '@mui/material/IconButton';
-
-import { paths } from 'src/routes/paths';
-
-import { TICKETS } from 'src/_mock';
 
 import { toast } from 'src/components/snackbar';
 import { Iconify } from 'src/components/iconify';
@@ -31,27 +27,35 @@ import {
   TablePaginationCustom,
 } from 'src/components/table';
 
-// ----------------------------------------------------------------------
+import { TableToolbar } from './table-toolbar';
 
-const TABLE_HEAD: TableHeadCellProps[] = [
-  { id: 'subject', label: 'Subject', width: 150 },
-  { id: 'status', label: 'Status', width: 80 },
-  { id: 'assigned_to', label: 'Assigned to ', width: 80 },
-  { id: 'created_date', label: 'Created date', width: 80 },
-  { id: 'priority', label: 'Priority', width: 80 },
-  { id: 'action', label: 'Action', width: 75, align: 'center' },
-];
+type TableCustomProps = {
+  columns: TableHeadCellProps[];
+  data: TicketsList[] | IUserItem[] | AccountList[];
+  tableToolbar?: boolean;
+  actionButton?: string;
+  editHref: (id: string) => string;
+};
 
-// ----------------------------------------------------------------------
-export function AccountTicketsList() {
+interface Filters {
+  [key: string]: string;
+}
+
+export function TableCustom({
+  columns,
+  data,
+  tableToolbar,
+  actionButton = '',
+  editHref,
+}: TableCustomProps) {
   const table = useTable({ defaultDense: true, defaultRowsPerPage: 10 });
 
   const confirmDialog = useBoolean();
 
-  const [tableData, setTableData] = useState<TicketsList[]>(TICKETS);
+  const [tableData, setTableData] = useState<TableCustomProps['data']>(data);
 
-  const filters = useSetState<IUserTableFilters>({ name: '', role: [], status: 'all' });
-  const { state: currentFilters, setState: updateFilters } = filters;
+  const userFilters = useSetState<IUserTableFilters>({ name: '', role: [], status: 'all' });
+  const { state: currentFilters, setState: updateFilters } = userFilters;
 
   const dataFiltered = applyFilter({
     inputData: tableData,
@@ -59,7 +63,11 @@ export function AccountTicketsList() {
     filters: currentFilters,
   });
 
-  const dataInPage = rowInPage(dataFiltered, table.page, table.rowsPerPage);
+  const dataInPage = rowInPage(
+    dataFiltered.filter((item): item is TicketsList => 'subject' in item),
+    table.page,
+    table.rowsPerPage
+  );
 
   const canReset =
     !!currentFilters.name || currentFilters.role.length > 0 || currentFilters.status !== 'all';
@@ -72,17 +80,71 @@ export function AccountTicketsList() {
 
       toast.success('Delete success!');
 
-      setTableData(deleteRow);
+      if (tableData.every((row) => 'subject' in row)) {
+        setTableData(deleteRow as TicketsList[]);
+      } else {
+        setTableData(deleteRow as IUserItem[]);
+      }
 
       table.onUpdatePageDeleteRow(dataInPage.length);
     },
     [dataInPage.length, table, tableData]
   );
 
-  const editHref = (id: string): string => paths.contact.details(id);
+  // ===============================================================
+  const [filters, setFilters] = useState<{ [key: string]: string }>({});
+
+  const handleFilterChange = (
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    column: string
+  ) => {
+    const value = event.target.value;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [column]: value,
+    }));
+
+    // Apply filtering
+    const newFilters = {
+      ...filters,
+      [column]: value,
+    };
+
+    setFilters(newFilters);
+
+    if (value === '') {
+      setTableData(data);
+    } else {
+      const filteredData = data.filter((row) =>
+        Object.keys(newFilters).every((key) => {
+          const cellValue = (row as any)[key as keyof typeof row]?.toString().toLowerCase();
+          return cellValue?.includes(
+            key === column ? value.toLowerCase() : newFilters[key].toLowerCase()
+          );
+        })
+      );
+
+      if (data.every((row) => 'subject' in row)) {
+        setTableData(filteredData as TicketsList[]);
+      } else if (data.every((row) => 'status' in row)) {
+        setTableData(filteredData as IUserItem[]);
+      } else {
+        setTableData(filteredData as AccountList[]);
+      }
+    }
+  };
+  // ===============================================================
 
   return (
     <Card sx={{ m: 1 }}>
+      {tableToolbar && (
+        <TableToolbar
+          filters={userFilters}
+          onResetPage={table.onResetPage}
+          options={{ roles: [] }}
+          actionButtonLabel={actionButton}
+        />
+      )}
       <Box sx={{ position: 'relative' }}>
         <TableSelectedAction
           dense={table.dense}
@@ -108,7 +170,7 @@ export function AccountTicketsList() {
             <TableHeadCustom
               order={table.order}
               orderBy={table.orderBy}
-              headCells={TABLE_HEAD}
+              headCells={columns}
               rowCount={dataFiltered.length}
               numSelected={table.selected.length}
               onSort={table.onSort}
@@ -118,6 +180,7 @@ export function AccountTicketsList() {
                   dataFiltered.map((row) => row.id)
                 )
               }
+              handleFilterChange={handleFilterChange}
             />
             <TableBody>
               <TableRowCustom
@@ -125,7 +188,7 @@ export function AccountTicketsList() {
                 table={table}
                 editHref={editHref}
                 onDeleteRow={handleDeleteRow}
-                headCells={TABLE_HEAD}
+                headCells={columns}
               />
 
               <TableEmptyRows
@@ -155,7 +218,7 @@ export function AccountTicketsList() {
 // ----------------------------------------------------------------------
 
 type ApplyFilterProps = {
-  inputData: TicketsList[];
+  inputData: TicketsList[] | IUserItem[] | AccountList[];
   filters: IUserTableFilters;
   comparator: (a: any, b: any) => number;
 };
@@ -171,10 +234,12 @@ function applyFilter({ inputData, comparator, filters }: ApplyFilterProps) {
     return a[1] - b[1];
   });
 
-  inputData = stabilizedThis.map((el) => el[0]);
+  inputData = stabilizedThis.map((el) => el[0]) as TicketsList[] | IUserItem[] | AccountList[];
 
   if (status !== 'all') {
-    inputData = inputData.filter((user) => user.status === status);
+    if (inputData.length && 'status' in inputData[0]) {
+      inputData = (inputData as IUserItem[]).filter((user) => user.status === status);
+    }
   }
 
   return inputData;

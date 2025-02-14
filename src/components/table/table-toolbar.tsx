@@ -24,9 +24,10 @@ type Props = {
   options: {
     roles: string[];
   };
+  actionButtonLabel: string;
 };
 
-export function UserTableToolbar({ filters, options, onResetPage }: Props) {
+export function TableToolbar({ filters, options, onResetPage, actionButtonLabel }: Props) {
   const menuActions = usePopover();
 
   const { state: currentFilters, setState: updateFilters } = filters;
@@ -95,7 +96,6 @@ export function UserTableToolbar({ filters, options, onResetPage }: Props) {
             flexGrow: 1,
             display: 'flex',
             alignItems: 'center',
-            // justifyContent: 'flex-end', // Align all items to the end
           }}
         >
           <Box sx={{ width: '100%' }}>
@@ -105,7 +105,7 @@ export function UserTableToolbar({ filters, options, onResetPage }: Props) {
               variant="contained"
               startIcon={<Iconify icon="mingcute:add-line" />}
             >
-              New Contact
+              New {actionButtonLabel}
             </Button>
           </Box>
           <Box
